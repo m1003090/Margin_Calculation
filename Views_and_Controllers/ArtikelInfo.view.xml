@@ -1,0 +1,33 @@
+<core:View
+	controllerName="sap.ui.demo.myFiori.view.ArtikelInfo"
+	xmlns="sap.m"
+	xmlns:form="sap.ui.layout.form"	
+	xmlns:core="sap.ui.core" >
+	<Page
+		title="{i18n>ArtikelInfoTitle}"
+		class="sapUiFioriObjectPage"
+		enableScrolling= "false" 
+		showNavButton="true"
+		navButtonPress="handleNavButtonPress" >
+		<subHeader>
+			<Bar>
+				<contentLeft>
+					<SearchField
+						search="handlesearch"
+						shoeRefreshButton="true"
+						width="100%" >
+					</SearchField>	
+				</contentLeft>
+			</Bar>
+		</subHeader>
+			
+
+		<TileContainer id="container"  tiles="{path:'ARTIKELDATA'}" >
+				<StandardTile title="{ARTIKELNAME}" 
+				 type="None" 
+				  numberUnit="EUR" number="{path : 'MARGINEURO',
+						formatter: 'sap.ui.demo.myFiori.util.Formatter.formatMoney'}" press="handleListItemPress"
+				icon="{STATUS}"/>
+			</TileContainer>
+		</Page>
+</core:View>

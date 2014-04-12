@@ -1,0 +1,73 @@
+<core:View
+	controllerName="sap.ui.demo.myFiori.view.Master"
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core" >
+	<Page
+		title="{i18n>MasterTitle}"
+		enableScrolling="true" 
+		icon="./images/SUPPLIER-sm.png">
+		<headerContent>
+			<Button id="MasterHeaderButton" icon="sap-icon://log" press="handleLogoff"/>
+		</headerContent>
+		<subHeader>
+			<Bar>
+				<contentLeft>
+					<SearchField
+						search="handlesearch"
+						width="100%" >
+					</SearchField>
+					<Button icon="sap-icon://refresh" id="refresh1" press="Refresh"/>
+				</contentLeft>
+			</Bar>
+		</subHeader>
+		<content>
+			<PullToRefresh id="pullrefresh" visible="{device>/isTouch}" refresh="Refresh"/>
+		</content>
+		<List
+			id="list"
+			noDataText="Oops! No suppliers found"
+			mode="{device>/listMode}"
+			select="handleListSelect"
+			growing="true"
+			growingThreshold="10"
+			items="{path:'/SUPPLIERINFO',
+					sorter:{
+					path:'NAME',
+					descending:false,
+					group:false}}">
+			<ObjectListItem id="template"
+				type="Active"
+				press="handleListItemPress"
+				icon="./images/SUPPLIER-sm.png"
+				number="{path : 'MARGINEURO',
+						formatter: 'sap.ui.demo.myFiori.util.Formatter.formatMoney'}"
+				numberUnit="EUR" >
+				<attributes>
+					<ObjectAttribute text="{NAME}" />
+				</attributes>
+				<firstStatus>
+					<ObjectStatus
+					icon="{STATUS}"
+						/>
+				</firstStatus>
+				<secondStatus>
+					<ObjectStatus
+					text="{LIFNR}"
+						/>
+				</secondStatus>
+				</ObjectListItem>
+		</List>
+		<footer>
+		<Bar id="bar">
+			<contentMiddle>
+					<Button icon="sap-icon://up"  id="positive"  press="filterPositive"/>
+					<Button icon="sap-icon://status-inactive" id="neutral"  press="filterNeutral"/>
+					<Button icon="sap-icon://down" id="negative"  press="filterNegative"/>
+					<Button icon="sap-icon://refresh"  id="refresh2" press="Refresh"/>
+			</contentMiddle>
+			
+		</Bar>		
+		</footer>
+		
+	</Page>
+</core:View>

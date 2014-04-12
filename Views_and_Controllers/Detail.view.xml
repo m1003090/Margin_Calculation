@@ -1,0 +1,166 @@
+<core:View
+	controllerName="sap.ui.demo.myFiori.view.Detail"
+	xmlns="sap.m"
+	xmlns:form="sap.ui.layout.form"	
+	xmlns:chart="sap.makit"
+	xmlns:core="sap.ui.core" 
+	xmlns:viz="sap.viz"
+	xmlns:commons="sap.ui.commons">
+	<Page
+	id="DetailPage"	
+		title="{i18n>DetailTitle}"
+		class="sapUiFioriObjectPage"
+		showNavButton="{device>/isPhone}"
+		navButtonPress="handleNavButtonPress" >
+		
+		<subHeader>
+			<Bar>
+				<contentLeft>
+					<SearchField
+						search="handlesearch"
+						shoeRefreshButton="true"
+						width="100%" >
+					</SearchField>
+				</contentLeft>
+			</Bar>
+		</subHeader>	
+		<ObjectHeader
+			id="test"
+			title="{LIFNR}"
+			number="{path : 'MARGINEURO',
+						formatter: 'sap.ui.demo.myFiori.util.Formatter.formatMoney'}"
+				numberUnit="EUR"
+				markFavorite ="true" 
+				markFlagged="true">
+			<attributes>
+				<ObjectAttribute text="{NAME}" />
+			</attributes>
+			<firstStatus>
+					<ObjectStatus
+						icon="{STATUS}" 
+						/>
+				</firstStatus>
+		</ObjectHeader>
+		<IconTabBar
+			expanded="{device>/isNoPhone}" >
+			<items>
+				<IconTabFilter
+				id="address"
+					icon="sap-icon://business-card">
+					<form:SimpleForm
+						id="SupplierForm"
+						minWidth="1024" >
+						<core:Title text="Address" />
+						<Label text="Name"/>
+						<Text text="{NAME}" />
+						<Label text="City"/>
+						<Text text="{CITY}" />
+						<Label text="Street"/>
+						<Text text="{STREET}" />
+						<Label text="PostalCode"/>
+						<Text text="{POSTZAHL}" />
+						<Label text="Country"/>
+						<Text text="{
+									path:'COUNTRY',
+									formatter: 'sap.ui.demo.myFiori.util.Formatter.statusText'}"
+									 />
+					</form:SimpleForm>
+				</IconTabFilter>
+				<IconTabFilter
+				id="storevsmargin-bar"
+					icon="sap-icon://vertical-bar-chart-2">
+					<viz:ui5.Bar width="100%" height="400px" >  
+                               <viz:title>  
+                                               <viz:ui5.types.Title text='hallo'> 
+                                               </viz:ui5.types.Title>  
+                               </viz:title>  
+                               <viz:dataset>  
+                                               <viz:ui5.data.FlattenedDataset data="{MASTERDATA}" id="dataset">  
+                                                               <viz:dimensions>  
+                                                                              <viz:ui5.data.DimensionDefinition  
+                                                                                              axis="1" name="SALESDATE" value="{STORELOCATION}">  
+                                                                              </viz:ui5.data.DimensionDefinition>  
+                                                               	</viz:dimensions>  
+                                                               <viz:measures>  
+                                                                              <viz:ui5.data.MeasureDefinition  
+                                                                                              name='MARGIN in Euros' value='{MARGINEURO}'>  
+                                                                              </viz:ui5.data.MeasureDefinition>  
+                                                                              
+                                                               </viz:measures>  
+                                               </viz:ui5.data.FlattenedDataset>  
+                               </viz:dataset>  
+                </viz:ui5.Bar> 
+						</IconTabFilter>
+				</items>
+				</IconTabBar>
+
+		<Table id="detailtable" headerText="{i18n>LineItemTableHeader}" icon="sap-icon://business-card" items="{path:'MASTERDATA',
+					sorter:{
+					path:'STORELOCATION',
+					descending:false,
+					group:false}}">
+			<columns id="column_name">
+				<Column>
+					<header><Label text="STORELOCATION" /></header>
+				</Column>
+				<Column
+					minScreenWidth="Tablet"
+					demandPopin="true"
+					hAlign="Center" >
+					<header><Label text="STOREID" /></header>
+				</Column>
+				<Column
+					minScreenWidth="Tablet"
+					demandPopin="true"
+					hAlign="Center" >
+					<header><Label text="MARGIN" /></header>
+				</Column>
+				<Column
+					minScreenWidth="Tablet"
+					demandPopin="true"
+					hAlign="Center" >
+					<header><Label text="STATUS" /></header>
+				</Column>
+			</columns>
+			<ColumnListItem id="columns"
+				type="Navigation"
+				press="handleLineItemPress" >
+				<cells>
+					<ObjectIdentifier title="{STORELOCATION}" />
+					<Text text="{STOREID}"/>
+					<ObjectNumber
+						number="{path : 'MARGINEURO',
+						formatter: 'sap.ui.demo.myFiori.util.Formatter.formatMoney'}"
+						numberUnit="EUR" />
+						<ObjectStatus icon="{STATUS}" />
+				</cells>
+			</ColumnListItem>
+		</Table>
+		<footer>
+			<Bar>
+				<contentRight>
+					<Select
+						id="groupSelect"
+						change="handleFilter"
+						icon="sap-icon://filter"
+						type="IconOnly"
+						selectedKey="None"
+						autoAdjustWidth="true" >
+						<core:Item
+							key="high"
+							text="{i18n>GroupPositive}"/>
+						<core:Item
+							key="medium"
+							text="{i18n>GroupNeutral}"/>
+						<core:Item
+							key="low"
+							text="{i18n>GroupNegative}"/>
+						<core:Item
+							key="refresh"
+							text="{i18n>GroupRefresh}"/>
+					</Select>
+				</contentRight>
+			</Bar>
+		</footer>
+		</Page>
+</core:View>
