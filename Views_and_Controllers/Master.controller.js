@@ -7,26 +7,6 @@ sap.ui.controller("sap.ui.demo.myFiori.view.Master", {
             	 var splitContainer = sap.ui.getCore().byId("SplitContainer");
             	 //var homeview = sap.ui.getCore().byId("Home");
             	 app.backToPage('Login');
-            	/* if(splitContainer.getPage("Master",true))
-         	 	{
-         		 	splitContainer.getPage("Master",true).destroy();
-         	 	}
-            	 if(splitContainer.getPage("Detail",false))
-            	 	{
-            		 	splitContainer.getPage("Detail",false).destroy();
-            	 	}
-            	 if(splitContainer.getPage("ArtikelInfo",false))
-         	 	{
-         		 	splitContainer.getPage("ArtikelInfo",false).destroy();
-         	 	}
-            	 if(splitContainer.getPage("Artikeldetail",false))
-         	 	{
-         		 	splitContainer.getPage("Artikeldetail",false).destroy();
-         	 	}
-            	 app.getPage("Home").destroy(); */
-            	 //Homeview.parentElement.removeChild();
-            	 //app.removeChild(Homeview);
-            	 //document.getElementById("Home").remove();
             	 
 	},
 		
@@ -57,7 +37,7 @@ sap.ui.controller("sap.ui.demo.myFiori.view.Master", {
 		var query = evt.getParameter("query");
 		console.log(query);
 		if (query && query.length > 0) {
-			var filter = new sap.ui.model.Filter("LIFNR", sap.ui.model.FilterOperator.Contains, query);
+			var filter = new sap.ui.model.Filter("NAME", sap.ui.model.FilterOperator.Contains, query);
 			console.log(filter);
 			filters.push(filter);
 		}

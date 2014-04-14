@@ -16,7 +16,7 @@
 					number="{path : 'MARGINEURO',
 				formatter: 'sap.ui.demo.myFiori.util.Formatter.formatMoney'}"
 					numberUnit="EUR"
-					markFavorite ="true" 
+					markFavorite ="true" 	
 					markFlagged="true">
 				<attributes>
 					<ObjectAttribute text="{NAME}" />
@@ -32,7 +32,7 @@
 					expanded="{device>/isNoPhone}" >
 				<items>
 					<IconTabFilter id="datevsmargin-Line" icon="sap-icon://line-charts" >
-						<viz:ui5.Line width="100%" height="400px">  
+						<viz:ui5.Combination width="100%" height="400px">  
 							<viz:title>  
 								<viz:ui5.types.Title text='hallo'>  
 								</viz:ui5.types.Title>  
@@ -41,33 +41,30 @@
 								<viz:ui5.data.FlattenedDataset data="{GRAPHDATA}">  
 									<viz:dimensions>  
 										<viz:ui5.data.DimensionDefinition  
-												axis="1" name="SALESDATE" value="{path:'BUSINESS_DATE',
+												axis="1" name="BUSINESS DATE" value="{path:'BUSINESS_DATE',
 											formatter:'sap.ui.demo.myFiori.util.Formatter.date'}">  
 										</viz:ui5.data.DimensionDefinition>  
 									</viz:dimensions>  
 									<viz:measures> 
 										<viz:ui5.data.MeasureDefinition  
-												name='PURCHASE PRICE(EUR)' value='{ACTUAL_PRICE2}'> 
+												name='MARGIN(EUR)' value="{path:'MARGINEURO'}">  
 										</viz:ui5.data.MeasureDefinition>  
 
-
 										<viz:ui5.data.MeasureDefinition  
-												name='SALES PRICE(EUR)' value='{SALES_PRICE}'> 
+												name='PURCHASE PRICE(EUR)' value="{path:'ACTUAL_PRICE2'}"> 
 										</viz:ui5.data.MeasureDefinition>  
-										<viz:ui5.data.MeasureDefinition  
-												name='MARGIN(EUR)' value='{MARGINEURO}'>  
-										</viz:ui5.data.MeasureDefinition> 
+
 
 
 									</viz:measures>  
 								</viz:ui5.data.FlattenedDataset>  
 							</viz:dataset>  
-						</viz:ui5.Line>  
+						</viz:ui5.Combination>  
 					</IconTabFilter>
 					<IconTabFilter
 							id="datevsmargin-Bar"
 							icon="sap-icon://bar-chart">
-						<viz:ui5.Bar width="100%" height="400px" >  
+						<viz:ui5.StackedColumn width="100%" height="400px" >  
 							<viz:title>  
 								<viz:ui5.types.Title text='hallo'>  
 								</viz:ui5.types.Title>  
@@ -81,21 +78,18 @@
 									</viz:dimensions>  
 									<viz:measures>  
 										<viz:ui5.data.MeasureDefinition  
-												name='PURCHASE PRICE(EUR)' value='{ACTUAL_PRICE2}'> 
-										</viz:ui5.data.MeasureDefinition>
+												name='MARGIN(EUR)'  value="{path:'MARGINEURO'}">  
+										</viz:ui5.data.MeasureDefinition>  
 
 										<viz:ui5.data.MeasureDefinition  
-												name='Sales Price(EUR)' value='{SALES_PRICE}'> 
+												name='PURCHASE PRICE(EUR)' value="{path:'ACTUAL_PRICE2'}"> 
 										</viz:ui5.data.MeasureDefinition>
-										<viz:ui5.data.MeasureDefinition  
-												name='MARGIN(EUR)' value='{MARGINEURO}'>  
-										</viz:ui5.data.MeasureDefinition>  
 
 
 									</viz:measures>  
 								</viz:ui5.data.FlattenedDataset>  
 							</viz:dataset>  
-						</viz:ui5.Bar> 
+						</viz:ui5.StackedColumn> 
 					</IconTabFilter>
 				</items>
 			</IconTabBar> 

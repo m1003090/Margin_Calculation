@@ -1,12 +1,13 @@
 <core:View
 	controllerName="sap.ui.demo.myFiori.view.ArtikelInfo"
 	xmlns="sap.m"
+	xmlns:tile="sap.ca.ui"
 	xmlns:form="sap.ui.layout.form"	
 	xmlns:core="sap.ui.core" >
 	<Page
 		title="{i18n>ArtikelInfoTitle}"
 		class="sapUiFioriObjectPage"
-		enableScrolling= "false" 
+		enableScrolling= "true" 
 		showNavButton="true"
 		navButtonPress="handleNavButtonPress" >
 		<subHeader>
@@ -22,12 +23,13 @@
 		</subHeader>
 			
 
-		<TileContainer id="container"  tiles="{path:'ARTIKELDATA'}" >
+		<tile:GrowingTileContainer id="container"  content="{path:'ARTIKELDATA',sorter:{path:'MARGINEURO',descending:true}}"
+		 growing="true" growingThreshold="10"  growingScrollToLoad="false">
 				<StandardTile title="{ARTIKELNAME}" 
 				 type="None" 
 				  numberUnit="EUR" number="{path : 'MARGINEURO',
 						formatter: 'sap.ui.demo.myFiori.util.Formatter.formatMoney'}" press="handleListItemPress"
 				icon="{STATUS}"/>
-			</TileContainer>
+			</tile:GrowingTileContainer>
 		</Page>
 </core:View>

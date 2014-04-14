@@ -12,7 +12,7 @@
 		class="sapUiFioriObjectPage"
 		showNavButton="{device>/isPhone}"
 		navButtonPress="handleNavButtonPress" >
-		
+
 		<subHeader>
 			<Bar>
 				<contentLeft>
@@ -26,23 +26,22 @@
 		</subHeader>	
 		<ObjectHeader
 			id="test"
-			title="{LIFNR}"
+			title="{path:'NAME',formatter: 'sap.ui.demo.myFiori.util.Formatter.formatNAME'}"
 			number="{path : 'MARGINEURO',
 						formatter: 'sap.ui.demo.myFiori.util.Formatter.formatMoney'}"
 				numberUnit="EUR"
 				markFavorite ="true" 
 				markFlagged="true">
 			<attributes>
-				<ObjectAttribute text="{NAME}" />
+				<ObjectAttribute text="{path:'LIFNR',formatter: 'sap.ui.demo.myFiori.util.Formatter.formatID'}" />
 			</attributes>
 			<firstStatus>
-					<ObjectStatus
+				<ObjectStatus
 						icon="{STATUS}" 
 						/>
-				</firstStatus>
+			</firstStatus>
 		</ObjectHeader>
-		<IconTabBar
-			expanded="{device>/isNoPhone}" >
+		<IconTabBar>
 			<items>
 				<IconTabFilter
 				id="address"
@@ -69,73 +68,59 @@
 				<IconTabFilter
 				id="storevsmargin-bar"
 					icon="sap-icon://vertical-bar-chart-2">
-					<viz:ui5.Bar width="100%" height="400px" >  
-                               <viz:title>  
-                                               <viz:ui5.types.Title text='hallo'> 
-                                               </viz:ui5.types.Title>  
-                               </viz:title>  
-                               <viz:dataset>  
-                                               <viz:ui5.data.FlattenedDataset data="{MASTERDATA}" id="dataset">  
-                                                               <viz:dimensions>  
-                                                                              <viz:ui5.data.DimensionDefinition  
-                                                                                              axis="1" name="SALESDATE" value="{STORELOCATION}">  
-                                                                              </viz:ui5.data.DimensionDefinition>  
-                                                               	</viz:dimensions>  
-                                                               <viz:measures>  
-                                                                              <viz:ui5.data.MeasureDefinition  
-                                                                                              name='MARGIN in Euros' value='{MARGINEURO}'>  
-                                                                              </viz:ui5.data.MeasureDefinition>  
-                                                                              
-                                                               </viz:measures>  
-                                               </viz:ui5.data.FlattenedDataset>  
-                               </viz:dataset>  
-                </viz:ui5.Bar> 
-						</IconTabFilter>
-				</items>
-				</IconTabBar>
+					<viz:ui5.Bar width="100%" height="400px" noData="new sap.ui.commons.TextView({text:'No Stores found!',textAlign:sap.ui.core.TextAlign.Center})">  
+						<viz:title>  
+							<viz:ui5.types.Title text='hallo'> 
+							</viz:ui5.types.Title>  
+						</viz:title>  
+						<viz:dataset>  
+							<viz:ui5.data.FlattenedDataset data="{MASTERDATA}" id="dataset">  
+								<viz:dimensions>  
+									<viz:ui5.data.DimensionDefinition axis="1" name="SALESDATE" value="{STORELOCATION}">  
+									</viz:ui5.data.DimensionDefinition>  
+								</viz:dimensions>  
+								<viz:measures>  
+									<viz:ui5.data.MeasureDefinition  name='MARGIN in Euros' value='{MARGINEURO}'>  
+									</viz:ui5.data.MeasureDefinition>  
+								</viz:measures>  
+							</viz:ui5.data.FlattenedDataset>  
+						</viz:dataset>  
+					</viz:ui5.Bar> 
+				</IconTabFilter>
+			</items>
+		</IconTabBar>
 
-		<Table id="detailtable" headerText="{i18n>LineItemTableHeader}" icon="sap-icon://business-card" items="{path:'MASTERDATA',
-					sorter:{
-					path:'STORELOCATION',
-					descending:false,
-					group:false}}">
-			<columns id="column_name">
-				<Column>
-					<header><Label text="STORELOCATION" /></header>
-				</Column>
-				<Column
-					minScreenWidth="Tablet"
-					demandPopin="true"
-					hAlign="Center" >
-					<header><Label text="STOREID" /></header>
-				</Column>
-				<Column
-					minScreenWidth="Tablet"
-					demandPopin="true"
-					hAlign="Center" >
-					<header><Label text="MARGIN" /></header>
-				</Column>
-				<Column
-					minScreenWidth="Tablet"
-					demandPopin="true"
-					hAlign="Center" >
-					<header><Label text="STATUS" /></header>
-				</Column>
-			</columns>
-			<ColumnListItem id="columns"
-				type="Navigation"
-				press="handleLineItemPress" >
-				<cells>
-					<ObjectIdentifier title="{STORELOCATION}" />
-					<Text text="{STOREID}"/>
-					<ObjectNumber
-						number="{path : 'MARGINEURO',
-						formatter: 'sap.ui.demo.myFiori.util.Formatter.formatMoney'}"
-						numberUnit="EUR" />
-						<ObjectStatus icon="{STATUS}" />
-				</cells>
-			</ColumnListItem>
-		</Table>
+		<IconTabBar
+        id="idIconTabBar"
+        select="handleIconTabBarSelect">
+        <items>
+          <IconTabFilter
+            icon="sap-icon://retail-store"
+            count="{STOREID}"
+            design="Horizontal"
+            text="All"
+            keys="All" />
+          <IconTabSeparator/>
+          <IconTabFilter
+            icon="sap-icon://drill-up"	
+            count="{STOREID}"
+            design="Horizontal"
+            text="Positive"
+            key="Positive" />
+          <IconTabFilter
+            icon="sap-icon://compare"
+            count="{STOREID}"
+            design="Horizontal"
+            text="Neutral"
+            key="Neutral" />
+          <IconTabFilter
+            icon="sap-icon://drill-down"
+            design="Horizontal"
+            count="{STOREID}"
+            text="Negative"
+            key="Negative" />
+        </items>
+      </IconTabBar>
 		<footer>
 			<Bar>
 				<contentRight>
@@ -162,5 +147,5 @@
 				</contentRight>
 			</Bar>
 		</footer>
-		</Page>
+	</Page>
 </core:View>

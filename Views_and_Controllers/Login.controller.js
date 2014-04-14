@@ -45,9 +45,7 @@ sap.ui.controller("sap.ui.demo.myFiori.view.Login", {
 	}, 
 	
 
-login: function(host,port,username,password,serviceURL){
-		this.host = host;
-		this.port = port;
+login: function(username,password,serviceURL){
 		this.username = username;
 		this.password = password;
 		jQuery.sap.require("sap.ui.commons.MessageBox"); 
@@ -55,13 +53,9 @@ login: function(host,port,username,password,serviceURL){
 			sap.ui.commons.MessageBox.show("Enter a valid Username!", sap.ui.commons.MessageBox.Icon.INFORMATION, "Error", [sap.ui.commons.MessageBox.Action.OK]);
 	}else if(!password){
 			sap.ui.commons.MessageBox.show("Enter a valid Password", sap.ui.commons.MessageBox.Icon.INFORMATION, "Error", [sap.ui.commons.MessageBox.Action.OK]);
-	}else if(!host){
-		sap.ui.commons.MessageBox.show("Enter a host name", sap.ui.commons.MessageBox.Icon.INFORMATION, "Error", [sap.ui.commons.MessageBox.Action.OK]);
-	}else if(!port){
-		sap.ui.commons.MessageBox.show("Enter a valid port number", sap.ui.commons.MessageBox.Icon.INFORMATION, "Error", [sap.ui.commons.MessageBox.Action.OK]);
 	}else{
 		//var url = "http://ec2-54-194-70-128.eu-west-1.compute.amazonaws.com:8000";
-		var url = "http://"+host+":"+port+"/fiori_dev/Fiori_App/TEST_ODATA6.xsodata/";
+		var url = "http://ec2-54-194-70-128.eu-west-1.compute.amazonaws.com:8000/fiori_dev/test/TEST_ODATA7.xsodata/";
 		var mHeaders = {};
 		//mHeaders['Access-Control-Allow-Origin'] = '*';
 		var oModel = new sap.ui.model.odata.ODataModel(url,true,username,password,mHeaders);

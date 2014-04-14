@@ -29,10 +29,6 @@ sap.ui.jsview("sap.ui.demo.myFiori.view.Login", {
 					columnsM: 2,
 					content:[
 							new sap.ui.core.Title({text:"Login"}),
-							new sap.ui.commons.Label({text:"Host"}),
-							new sap.ui.commons.TextField({id:"hostname"}),
-							new sap.ui.commons.Label({text:"Port"}),
-							new sap.ui.commons.TextField({id:"portnumber"}),
 							new sap.ui.commons.Label({text:"Username"}),
 							new sap.ui.commons.TextField({id:"userTfId"}),
 							new sap.ui.commons.Label({text:"Password"}),
@@ -45,11 +41,9 @@ sap.ui.jsview("sap.ui.demo.myFiori.view.Login", {
 		oButton = sap.ui.getCore().byId('loginButtonId');
 		oButton.attachPress(
 			    function (oControlEvent) {
-			    	oHost = sap.ui.getCore().byId('hostname').getValue();
-			    	oPort = sap.ui.getCore().byId('portnumber').getValue();
 				    oUsername = sap.ui.getCore().byId('userTfId').getValue();
 				    oPassword = sap.ui.getCore().byId('passwordTfId').getValue();
-				    oController.login(oHost,oPort,oUsername,oPassword);
+				    oController.login(oUsername,oPassword);
 
 
 			    }

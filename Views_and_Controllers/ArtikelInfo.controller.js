@@ -1,4 +1,4 @@
-jQuery.sap.require("sap.ui.demo.myFiori.util.Formatter");
+	jQuery.sap.require("sap.ui.demo.myFiori.util.Formatter");
 sap.ui.controller("sap.ui.demo.myFiori.view.ArtikelInfo", {
 	
 		handleNavButtonPress : function (evt) {
@@ -22,6 +22,6 @@ handlesearch : function (evt) {
 	}
 	// update list binding
 	var tilecontainer = this.byId("container");
-	tilecontainer.getBinding("tiles").filter(filters);
+	tilecontainer.getBinding("content").filter(filters);
 },
 });

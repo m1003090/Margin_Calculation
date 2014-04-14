@@ -5,7 +5,7 @@
 	<Page
 		title="{i18n>MasterTitle}"
 		enableScrolling="true" 
-		icon="./images/SUPPLIER-sm.png">
+		icon="sap-icon://supplier">
 		<headerContent>
 			<Button id="MasterHeaderButton" icon="sap-icon://log" press="handleLogoff"/>
 		</headerContent>
@@ -32,13 +32,13 @@
 			growingThreshold="10"
 			items="{path:'/SUPPLIERINFO',
 					sorter:{
-					path:'NAME',
-					descending:false,
+					path:'MARGINEURO',
+					descending:true,
 					group:false}}">
 			<ObjectListItem id="template"
 				type="Active"
 				press="handleListItemPress"
-				icon="./images/SUPPLIER-sm.png"
+				icon="sap-icon://supplier"
 				number="{path : 'MARGINEURO',
 						formatter: 'sap.ui.demo.myFiori.util.Formatter.formatMoney'}"
 				numberUnit="EUR" >
