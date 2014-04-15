@@ -95,6 +95,7 @@
         select="handleIconTabBarSelect">
         <items>
           <IconTabFilter
+          	id="Allstores"
             icon="sap-icon://retail-store"
             count="{STOREID}"
             design="Horizontal"
@@ -102,50 +103,28 @@
             keys="All" />
           <IconTabSeparator/>
           <IconTabFilter
-            icon="sap-icon://drill-up"	
+            id="Positivestores"
+            icon="sap-icon://add"	
             count="{STOREID}"
             design="Horizontal"
             text="Positive"
             key="Positive" />
           <IconTabFilter
+            id="Neutralstores"
             icon="sap-icon://compare"
             count="{STOREID}"
             design="Horizontal"
             text="Neutral"
             key="Neutral" />
           <IconTabFilter
-            icon="sap-icon://drill-down"
+          	id="Negativestores"
+            icon="sap-icon://less"
             design="Horizontal"
             count="{STOREID}"
             text="Negative"
             key="Negative" />
         </items>
       </IconTabBar>
-		<footer>
-			<Bar>
-				<contentRight>
-					<Select
-						id="groupSelect"
-						change="handleFilter"
-						icon="sap-icon://filter"
-						type="IconOnly"
-						selectedKey="None"
-						autoAdjustWidth="true" >
-						<core:Item
-							key="high"
-							text="{i18n>GroupPositive}"/>
-						<core:Item
-							key="medium"
-							text="{i18n>GroupNeutral}"/>
-						<core:Item
-							key="low"
-							text="{i18n>GroupNegative}"/>
-						<core:Item
-							key="refresh"
-							text="{i18n>GroupRefresh}"/>
-					</Select>
-				</contentRight>
-			</Bar>
-		</footer>
+		
 	</Page>
 </core:View>

@@ -50,7 +50,7 @@ sap.ui.controller("sap.ui.demo.myFiori.view.Master", {
 	
 	
 	filterPositive:function (evt) {
-		var listfilter = new sap.ui.model.Filter("STATUS", sap.ui.model.FilterOperator.EQ, 'sap-icon://up');
+		var listfilter = new sap.ui.model.Filter("STATUS", sap.ui.model.FilterOperator.EQ, 'sap-icon://add');
 		var list = this.byId("list");
 		list.getBinding("items").filter(listfilter);
 		},
@@ -62,7 +62,7 @@ sap.ui.controller("sap.ui.demo.myFiori.view.Master", {
 		},
 	
 	filterNegative:function (evt) {
-		var listfilter = new sap.ui.model.Filter("STATUS", sap.ui.model.FilterOperator.EQ, 'sap-icon://down');
+		var listfilter = new sap.ui.model.Filter("STATUS", sap.ui.model.FilterOperator.EQ, 'sap-icon://less');
 		var list = this.byId("list");
 		list.getBinding("items").filter(listfilter);
 		},

@@ -122,7 +122,7 @@ sap.ui.controller("sap.ui.demo.myFiori.view.Detail", {
         var oBindingTable = oTable.getBinding("items"),sKey = oEvent.getParameter("selectedKey"),oFilter;
         var oBindingChart = oChart.getBinding("data"),sKey = oEvent.getParameter("selectedKey"),oFilter;
         if (sKey === "Positive") {
-            oFilter = new sap.ui.model.Filter("STATUS", "EQ", 'sap-icon://up');
+            oFilter = new sap.ui.model.Filter("STATUS", "EQ", 'sap-icon://add');
             oBindingTable.filter([oFilter]);
              oBindingChart.filter([oFilter]);
         } else if (sKey === "Neutral") {
@@ -130,7 +130,7 @@ sap.ui.controller("sap.ui.demo.myFiori.view.Detail", {
             oBindingChart.filter([oFilter]);
              oBindingTable.filter([oFilter]);
         } else if (sKey === "Negative") {
-            oFilter = new sap.ui.model.Filter("STATUS", "EQ", 'sap-icon://down');
+            oFilter = new sap.ui.model.Filter("STATUS", "EQ", 'sap-icon://less');
             oBindingTable.filter([oFilter]);
              oBindingChart.filter([oFilter]);
         } else {

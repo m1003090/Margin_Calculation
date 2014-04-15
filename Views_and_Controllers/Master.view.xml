@@ -20,9 +20,7 @@
 				</contentLeft>
 			</Bar>
 		</subHeader>
-		<content>
-			<PullToRefresh id="pullrefresh" visible="{device>/isTouch}" refresh="Refresh"/>
-		</content>
+
 		<List
 			id="list"
 			noDataText="Oops! No suppliers found"
@@ -60,9 +58,9 @@
 		<footer>
 		<Bar id="bar">
 			<contentMiddle>
-					<Button icon="sap-icon://up"  id="positive"  press="filterPositive"/>
+					<Button icon="sap-icon://add"  id="positive"  press="filterPositive"/>
 					<Button icon="sap-icon://status-inactive" id="neutral"  press="filterNeutral"/>
-					<Button icon="sap-icon://down" id="negative"  press="filterNegative"/>
+					<Button icon="sap-icon://less" id="negative"  press="filterNegative"/>
 					<Button icon="sap-icon://refresh"  id="refresh2" press="Refresh"/>
 			</contentMiddle>
 			
