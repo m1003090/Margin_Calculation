@@ -10,7 +10,7 @@ sap.ui.jsview("sap.ui.demo.myFiori.view.Home", {
 		this.setDisplayBlock(true);
 		
 		// create app
-		this.appcontainer = new sap.m.SplitContainer("SplitContainer");
+		this.appcontainer = new sap.m.SplitContainer("SplitContainer",{mode:sap.m.SplitAppMode.HideMode});
 		
 		// load the master page
 		var master = sap.ui.xmlview("Master", "sap.ui.demo.myFiori.view.Master");

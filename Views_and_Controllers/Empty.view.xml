@@ -2,8 +2,11 @@
 	xmlns="sap.m"
 	xmlns:core="sap.ui.core" >
 	<Page>
-		
-		
-	
+		 <HBox id="emptypagehbox">
+        <items>
+        <Image src="./images/gicom_logo_1.gif" width="100%" alt="gicom.org" >
+        </Image>
+        </items>
+        </HBox>
 	</Page>
 </core:View>
