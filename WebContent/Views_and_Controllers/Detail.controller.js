@@ -43,7 +43,7 @@ sap.ui.controller("sap.ui.demo.myFiori.view.Detail", {
                         number: "{path:'MARGINEURO', formatter: 'sap.ui.demo.myFiori.util.Formatter.formatMoney'}",
                         numberUnit: "EUR"
                     }), new sap.m.ObjectStatus({
-                        icon: "{STATUS}"
+                        icon: "{path:'STATUS',formatter: 'sap.ui.demo.myFiori.util.Formatter.statusState'}"
                     })]
                 })
             }
@@ -122,15 +122,15 @@ sap.ui.controller("sap.ui.demo.myFiori.view.Detail", {
         var oBindingTable = oTable.getBinding("items"),sKey = oEvent.getParameter("selectedKey"),oFilter;
         var oBindingChart = oChart.getBinding("data"),sKey = oEvent.getParameter("selectedKey"),oFilter;
         if (sKey === "Positive") {
-            oFilter = new sap.ui.model.Filter("STATUS", "EQ", 'sap-icon://add');
+            oFilter = new sap.ui.model.Filter("STATUS", "EQ", '1');
             oBindingTable.filter([oFilter]);
              oBindingChart.filter([oFilter]);
         } else if (sKey === "Neutral") {
-            oFilter = new sap.ui.model.Filter("STATUS", "EQ", 'sap-icon://status-inactive');
+            oFilter = new sap.ui.model.Filter("STATUS", "EQ", '2');
             oBindingChart.filter([oFilter]);
              oBindingTable.filter([oFilter]);
         } else if (sKey === "Negative") {
-            oFilter = new sap.ui.model.Filter("STATUS", "EQ", 'sap-icon://less');
+            oFilter = new sap.ui.model.Filter("STATUS", "EQ", '3');
             oBindingTable.filter([oFilter]);
              oBindingChart.filter([oFilter]);
         } else {

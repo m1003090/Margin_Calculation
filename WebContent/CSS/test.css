@@ -1,0 +1,134 @@
+.sapUiBody{font-family:'Roboto', 'Open Sans',sans-serif !important}
+#Master--positive-img{color:greenyellow;}
+#Master--negative-img{color:rgb(252, 21, 21);}
+#Master--neutral-img{color:rgb(170, 168, 165);}
+#Detail--address-icon{color:white;background:rgb(109, 97, 247);border:none;}
+#Detail--storevsmargin-bar-icon{color:white;background:rgb(207, 83, 238);border:none;}
+#Detail--test2-header{font-weight:bold;}
+#Detail--test-number{font-weight:bold;}
+#Detail--test-title{font-weight:bold;}
+#__attribute1{font-weight:bold;}
+#Artdetail--datevsmargin-Line-icon{color:white;background:rgb(252, 171, 22);border:none;}
+#Artdetail--datevsmargin-Bar-icon{color:white;background:rgb(206, 22, 252);border:none;}
+.sapUiIcon[data-sap-ui-icon-content=""]{
+	color:rgb(252, 21, 21)
+}
+.sapUiIcon[data-sap-ui-icon-content=""]{
+	color:greenyellow	
+}
+.sapUiIcon[data-sap-ui-icon-content=""]{
+	color:rgb(170, 168, 165)
+}
+#Detail--detailMenuButton{
+	margin-left:25px;
+	margin-top:10px;
+}
+.sapMObjLTitle{
+	font-family:'Roboto', 'Open Sans',sans-serif !important;	
+}
+.sapMObjLNumber{
+		color:orange !important;
+}
+.sapMOHNumber{
+	font-weight:bolder;
+}
+.sapMTCCnt.sapMTCAnim{
+	height:50%;
+}
+.sapMOHTitle{
+	font-weight:400;
+	font-size:larger;
+}
+.sapMListHdr{
+	color:rgb(250, 159, 41) !important;
+	font-weight:bold !important;
+}
+.sapMLabel{
+	font-weight:bold !important;
+	font-family:'Roboto', 'Open Sans',sans-serif !important
+}
+.sapMText{
+	font-family:'Roboto', 'Open Sans',sans-serif !important;
+}
+.sapUiFormTitle.sapUiFormTitleH2{
+	font-weight:bold !important;
+}
+.sapMNavItem.sapUiJSView.sapUiView{
+	background-color:white !important;
+}
+#loginButtonId{
+	height:50% !important;
+		line-height:2em !important;
+		margin-top:25px !important;
+}
+.sapUiFormLabel-CTX.sapUiLbl.sapUiLblNowrap{
+	font-family : 'Roboto', 'Open Sans',sans-serif !important
+}
+.sapUiFormTitle.sapUiFormTitleH2{
+	font-family : 'Roboto', 'Open Sans',sans-serif !important;
+	font-weight : bold;
+}
+#Detail--Allstores-icon{color:white;background:#3EADDD;border:none;}
+#Detail--Positivestores-icon{color:white;background:#50EC3A;border:none;}
+#Detail--Neutralstores-icon{color:white;background:rgb(252, 171, 22);border:none;}
+#Detail--Negativestores-icon{color:white;background:rgb(255, 87, 94);border:none;}
+#Artdetail--productitem-small-3-title{
+	color:brown;
+	font-weight:bolder;
+	font-size:-webkit-xxx-large;
+	padding-top:5px;
+}
+#Artdetail--productitem-small-4-title{
+	color:brown;
+	font-weight:bolder;
+	font-size:-webkit-xxx-large;
+	padding-top:5px;
+}
+#Artdetail--productitem-small-2-title{
+	color:brown;
+	font-weight:bolder;
+	font-size:-webkit-xxx-large;
+	padding-top:5px;
+}
+#Artdetail--productitem-small-0-title{
+	font-weight:bolder;
+	color:brown;
+	}
+#Artdetail--productitem-small-1-title{
+	font-weight:bolder;
+	color:brown;
+	}
+#Artdetail--productitem-small-0{
+border:none;
+font-weight:bold;	
+}
+#Artdetail--productitem-small-1{
+border:none;
+font-weight:bold;
+}
+#Artdetail--productitem-small-2{
+border:none;
+font-weight:bold;
+}
+#Artdetail--productitem-small-3{
+border:none;
+font-weight:bold;
+}
+#Artdetail--productitem-small-4{
+border:none;
+font-weight:bold;
+}
+#Artdetail--productitem-small-2-img{
+	width:3rem !important;
+	height:3rem !important;	
+}
+#Empty--emptypagehbox{
+	justify-content:center;
+	padding-top:200px;
+}
+#__image1{
+	width:90% !important;
+}
+
+
+

@@ -45,7 +45,7 @@
 				</attributes>
 				<firstStatus>
 					<ObjectStatus
-					icon="{STATUS}"
+					icon="{path:'STATUS',formatter: 'sap.ui.demo.myFiori.util.Formatter.statusState'}"
 						/>
 				</firstStatus>
 				<secondStatus>

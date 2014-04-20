@@ -1,0 +1,51 @@
+<core:View xmlns="sap.m" xmlns:makit="sap.makit" xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns:viz="sap.viz" xmlns:l="sap.ui.layout" controllerName="sap.ui.demo.myFiori.view.Artdetail">
+    <Page title="{i18n&gt;ArtikelDetail}" id="ArtikeldetailPage" class="sapUiFioriObjectPage" showNavButton="true" navButtonPress="handleNavButtonPress" enableScrolling="true">
+        <content>
+            <l:Grid id="ArtikelGrid" defaultSpan="L4 M6 S6" class="gridMarginTop">
+                <l:content>
+                 <HBox>
+                <items>
+                    <Image src="./images/gicom_logo_1.gif" width="100%" alt="gicom.org">
+                </Image>
+            </items>
+        </HBox>
+                	
+                    <ObjectListItem id="productitem-small-0" title="{NAME}" intro="{STORELOCATION}" icon="./images/company.png">
+                </ObjectListItem>
+                <ObjectListItem id="productitem-small-1" title="{ARTIKELNAME}" intro="{path:'ARTIKEL',formatter: 'sap.ui.demo.myFiori.util.Formatter.formatArtikelId'}" icon="./images/articleicon.png">
+            </ObjectListItem>
+                   <ObjectListItem id="productitem-small-2" title="{path:'SALES_QUANTITY',formatter: 'sap.ui.demo.myFiori.util.Formatter.formatKeyFigureQuantity'}" intro="Sold Quantity" icon="./images/quantity2.jpg">
+    </ObjectListItem>
+    <ObjectListItem id="productitem-small-4" title="{path:'SALES_PRICE',formatter: 'sap.ui.demo.myFiori.util.Formatter.formatMoneyWithCurreny'}" intro="Avg. Sales Price" icon="./images/sales_price1.jpg">
+</ObjectListItem>
+<ObjectListItem id="productitem-small-3" title="{path:'MARGINEURO',formatter: 'sap.ui.demo.myFiori.util.Formatter.formatMoneyWithCurreny'}" intro="Total Margin" icon="./images/money_cash_payment.png">
+</ObjectListItem>
+</l:content>
+</l:Grid>
+<viz:ui5.StackedColumn width="100%" height="350px" id="stackedcolumn">
+    <viz:title>
+        <viz:ui5.types.Title text="hallo">
+        </viz:ui5.types.Title>
+    </viz:title>
+    <viz:dataset>
+        <viz:ui5.data.FlattenedDataset data="{GRAPHDATA}">
+            <viz:dimensions>
+                <viz:ui5.data.DimensionDefinition axis="1" name="Year" value="{path:'YEAR'}">
+                </viz:ui5.data.DimensionDefinition>
+                <viz:ui5.data.DimensionDefinition axis="1" name="Month" value="{path:'MONTH'}">
+                </viz:ui5.data.DimensionDefinition>
+                <viz:ui5.data.DimensionDefinition axis="1" name="Date" value="{path:'BUSINESS_DATE',            formatter:'sap.ui.demo.myFiori.util.Formatter.date'}">
+                </viz:ui5.data.DimensionDefinition>
+            </viz:dimensions>
+            <viz:measures>
+                <viz:ui5.data.MeasureDefinition name="PURCHASE PRICE(EUR)" value="{path:'ACTUAL_PRICE2'}">
+                </viz:ui5.data.MeasureDefinition>
+                <viz:ui5.data.MeasureDefinition name="MARGIN(EUR)" value="{path:'MARGINEUROPERPC'}">
+                </viz:ui5.data.MeasureDefinition>
+            </viz:measures>
+        </viz:ui5.data.FlattenedDataset>
+    </viz:dataset>
+</viz:ui5.StackedColumn>
+</content>
+</Page>
+</core:View>

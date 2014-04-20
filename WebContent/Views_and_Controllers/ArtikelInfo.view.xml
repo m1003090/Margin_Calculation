@@ -21,15 +21,15 @@
 				</contentLeft>
 			</Bar>
 		</subHeader>
-			
 
-		<tile:GrowingTileContainer id="container"  content="{path:'ARTIKELDATA',sorter:{path:'MARGINEURO',descending:true}}"
+		<tile:GrowingTileContainer id="container"  content="{path:'ARTIKELDATA',sorter:{path:'STATUS,MARGINEURO',descending:true}
+}"
 		 growing="true" growingThreshold="10"  growingScrollToLoad="false">
 				<StandardTile title="{ARTIKELNAME}" 
 				 type="None" 
 				  numberUnit="EUR" number="{path : 'MARGINEURO',
 						formatter: 'sap.ui.demo.myFiori.util.Formatter.formatMoney'}" press="handleListItemPress"
-				icon="{STATUS}"/>
+				icon="{path:'STATUS',formatter: 'sap.ui.demo.myFiori.util.Formatter.statusState'}"/>
 			</tile:GrowingTileContainer>
 		</Page>
 </core:View>
